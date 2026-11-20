@@ -1,0 +1,61 @@
+name: Instagram daily post
+
+on:
+  schedule:
+    # 03:27 UTC = 08:57 IST every day (GitHub may start it a few minutes late).
+    - cron: "27 3 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date to post (YYYY-MM-DD or 'today')"
+        default: "today"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-daily-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Render today's image
+        id: render
+        run: python poster.py render --date "${{ github.event.inputs.date || 'today' }}"
+
+      - name: Commit image so Instagram can download it
+        id: upload
+        if: steps.render.outputs.image != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/posts
+          git commit -m "Instagram post image for ${{ steps.render.outputs.date }}" || true
+          git push
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Publish to Instagram
+        if: steps.render.outputs.image != ''
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          python poster.py publish --date "${{ steps.render.outputs.date }}" \
+            --image-url "https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.upload.outputs.sha }}/${{ steps.render.outputs.image }}"
+
+      - name: Record the published post
+        if: steps.render.outputs.image != ''
+        run: |
+          git add output/posts
+          git commit -m "Instagram post published for ${{ steps.render.outputs.date }}" || exit 0
+          git push

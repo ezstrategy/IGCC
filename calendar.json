@@ -1,0 +1,122 @@
+{
+  "_help": "One entry per calendar day (YYYY-MM-DD). Templates: quote, tip, announcement. If a date has no entry, a post from 'evergreen' is used instead (rotating by day). Caption placeholders: {brand}, {handle}, {website}, {date}, {weekday}.",
+
+  "days": {
+    "2026-11-21": {
+      "template": "announcement",
+      "title": "Every diamond has a story",
+      "text": "We make sure it's the true one. Follow for daily diamond knowledge.",
+      "cta": "{website}",
+      "caption": "Welcome to {brand}! Every day we'll share practical knowledge about diamonds, grading and certification, so you can buy and sell with confidence.",
+      "hashtags": ["#DiamondLab"]
+    },
+    "2026-11-22": {
+      "template": "tip",
+      "label": "THE 4Cs • 1/4",
+      "title": "Cut",
+      "text": "Cut is about how well a diamond's facets work with light. It drives brilliance, fire and sparkle more than any other C.",
+      "caption": "The 4Cs, part 1: Cut. A well-cut diamond returns light to your eye; a poorly cut one leaks it. Save this series!",
+      "hashtags": ["#4Cs", "#DiamondCut"]
+    },
+    "2026-11-23": {
+      "template": "tip",
+      "label": "THE 4Cs • 2/4",
+      "title": "Colour",
+      "text": "White diamonds are graded on a scale from D (colourless) to Z (light yellow or brown). The closer to D, the rarer.",
+      "caption": "The 4Cs, part 2: Colour. Small colour differences can be invisible to the eye yet matter a lot on a report.",
+      "hashtags": ["#4Cs", "#DiamondColour"]
+    },
+    "2026-11-24": {
+      "template": "tip",
+      "label": "THE 4Cs • 3/4",
+      "title": "Clarity",
+      "text": "From FL and IF through VVS, VS and SI to I: clarity describes the size, number and position of inclusions and blemishes.",
+      "caption": "The 4Cs, part 3: Clarity. Most inclusions can only be seen under 10x magnification - that's where grading comes in.",
+      "hashtags": ["#4Cs", "#DiamondClarity"]
+    },
+    "2026-11-25": {
+      "template": "tip",
+      "label": "THE 4Cs • 4/4",
+      "title": "Carat",
+      "text": "Carat measures weight, not size. One carat equals 0.2 grams (200 milligrams).",
+      "caption": "The 4Cs, part 4: Carat. Two diamonds of the same carat weight can look different in size depending on their cut.",
+      "hashtags": ["#4Cs", "#DiamondCarat"]
+    },
+    "2026-11-26": {
+      "template": "quote",
+      "text": "Trust, but verify. Every diamond deserves an independent report.",
+      "author": "{brand}",
+      "caption": "A certificate from an independent lab protects both buyer and seller."
+    },
+    "2026-11-27": {
+      "template": "tip",
+      "label": "DID YOU KNOW?",
+      "title": "Lab-grown or natural?",
+      "text": "Lab-grown diamonds are physically and chemically diamond. Telling them apart from natural ones needs laboratory testing.",
+      "caption": "You can't tell a lab-grown diamond from a natural one by eye. That's exactly why testing and disclosure matter.",
+      "hashtags": ["#LabGrownDiamonds", "#NaturalDiamonds"]
+    },
+    "2026-11-28": {
+      "template": "announcement",
+      "title": "Buying this season?",
+      "text": "Ask for an independent certificate before you pay.",
+      "cta": "Learn more at {website}",
+      "caption": "Big shopping weekend? Make sure the diamond you buy is exactly what it's described as. Ask for the report.",
+      "hashtags": ["#SmartBuying"]
+    }
+  },
+
+  "evergreen": [
+    {
+      "template": "tip",
+      "label": "BUYER TIP",
+      "title": "Match the report to the stone",
+      "text": "If your diamond has a laser inscription on its girdle, check that the number matches the one on its report.",
+      "caption": "A report only protects you if it belongs to your diamond. Always check the details match."
+    },
+    {
+      "template": "tip",
+      "label": "DIAMOND CARE",
+      "title": "Keep it sparkling",
+      "text": "Soak in warm water with a little mild soap, then brush gently with a soft toothbrush. Rinse and pat dry.",
+      "caption": "Oils and lotions dull a diamond's sparkle. A simple clean at home brings it back.",
+      "hashtags": ["#JewelleryCare"]
+    },
+    {
+      "template": "tip",
+      "label": "DID YOU KNOW?",
+      "title": "Hard, not unbreakable",
+      "text": "Diamond is the hardest natural material, 10 on the Mohs scale - but a sharp knock can still chip it.",
+      "caption": "Hardness resists scratches, not impacts. Store diamond jewellery separately and take it off for heavy work."
+    },
+    {
+      "template": "tip",
+      "label": "DID YOU KNOW?",
+      "title": "Some diamonds glow",
+      "text": "Under ultraviolet light, many diamonds show fluorescence - most often blue. It's noted on grading reports.",
+      "caption": "Fluorescence is one of the details a grading report records. Have you ever seen a diamond glow?",
+      "hashtags": ["#Fluorescence"]
+    },
+    {
+      "template": "tip",
+      "label": "LOOK-ALIKES",
+      "title": "Not everything that sparkles is diamond",
+      "text": "Cubic zirconia and moissanite can look similar at a glance. Proper gemmological testing tells them apart.",
+      "caption": "Simulants are common in the market. When in doubt, get it tested.",
+      "hashtags": ["#Moissanite", "#GemTesting"]
+    },
+    {
+      "template": "quote",
+      "text": "Confidence comes from knowing exactly what you own.",
+      "author": "{brand}",
+      "caption": "Happy {weekday} from {brand}."
+    },
+    {
+      "template": "announcement",
+      "title": "Certify with confidence",
+      "text": "Independent diamond testing and grading.",
+      "cta": "{website}",
+      "caption": "Get your diamonds tested and certified by {brand}. Visit {website} to know more."
+    }
+  ]
+}

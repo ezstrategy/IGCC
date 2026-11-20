@@ -1,0 +1,23 @@
+{
+  "brand": {
+    "name": "IGCC",
+    "handle": "",
+    "website": "www.igcc.in",
+    "logo": "assets/logo.png"
+  },
+  "colors": {
+    "background": "#0B1426",
+    "background_end": "#14233F",
+    "accent": "#C9A55C",
+    "text": "#F8FAFC",
+    "muted": "#A7B1C2"
+  },
+  "fonts": {
+    "bold": "fonts/bold.ttf",
+    "regular": "fonts/regular.ttf"
+  },
+  "timezone": "Asia/Kolkata",
+  "image_size": [1080, 1350],
+  "default_hashtags": ["#IGCC", "#DiamondCertification", "#CertifiedDiamonds", "#Diamonds"],
+  "graph_api_version": "v23.0"
+}
