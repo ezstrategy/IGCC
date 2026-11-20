@@ -159,7 +159,21 @@ class Painter:
         for y in range(self.H):
             t = y / (self.H - 1)
             d.line([(0, y), (self.W, y)], fill=tuple(int(a + (b - a) * t) for a, b in zip(top, bottom)))
+        self.watermark(img)
         return img
+
+    def watermark(self, img):
+        """Large faint brand emblem bleeding off the bottom-right corner."""
+        wm = self.cfg["brand"].get("watermark")
+        if not wm or not (ROOT / wm).is_file():
+            return
+        mark = Image.open(ROOT / wm).convert("RGBA")
+        size = int(self.W * 0.95)
+        mark = mark.resize((size, size), Image.LANCZOS)
+        alpha = mark.getchannel("A").point(lambda v: int(v * self.cfg["brand"].get("watermark_opacity", 0.08)))
+        tinted = Image.new("RGBA", mark.size, self.c["accent"] + (0,))
+        tinted.putalpha(alpha)
+        img.paste(tinted, (int(self.W * 0.42), int(self.H * 0.5)), tinted)
 
     def frame(self, img, day):
         """Brand header and footer shared by every template."""
@@ -168,17 +182,17 @@ class Painter:
         header_y = int(self.H * 0.055)
 
         logo_path = ROOT / brand.get("logo", "")
-        x = m
         if brand.get("logo") and logo_path.is_file():
             logo = Image.open(logo_path).convert("RGBA")
-            logo.thumbnail((90, 90))
-            img.paste(logo, (m, header_y - 10), logo)
-            x = m + logo.width + 20
-        d.text((x, header_y + 12), brand.get("name", "").upper(), font=self.font("bold", 34), fill=self.c["text"])
+            h = brand.get("logo_height", 64)
+            logo = logo.resize((int(logo.width * h / logo.height), h), Image.LANCZOS)
+            img.paste(logo, (m, header_y), logo)
+        else:
+            d.text((m, header_y + 12), brand.get("name", "").upper(), font=self.font("bold", 34), fill=self.c["text"])
 
         date_font = self.font("regular", 28)
         date_txt = day.strftime("%d %b %Y").upper()
-        d.text((self.W - m - d.textlength(date_txt, font=date_font), header_y + 16), date_txt,
+        d.text((self.W - m - d.textlength(date_txt, font=date_font), header_y + 24), date_txt,
                font=date_font, fill=self.c["muted"])
 
         foot_y = self.H - int(self.H * 0.085)
