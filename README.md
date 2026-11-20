@@ -101,7 +101,7 @@ Each image gets a matching `.txt` file containing the caption that will be poste
 
 - The schedule runs from the `main` branch, which this repo already uses.
 - The posting time is the `cron:` line in the workflow, written in UTC. It's currently
-  `27 3 * * *`, which is about 9:00 AM IST. To work out another time, subtract 5h30m from IST.
+  `57 12 * * *`, which is about 6:30 PM IST. To work out another time, subtract 5h30m from IST.
 - To test straight away, open the **Actions** tab, choose **Instagram daily post**, click **Run workflow**,
   and enter a date. It posts for real.
 - Every post is recorded in `output/posts/DATE.posted.json`, so a day is never posted twice.

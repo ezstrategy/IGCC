@@ -2,8 +2,8 @@ name: Instagram daily post
 
 on:
   schedule:
-    # 03:27 UTC = 08:57 IST every day (GitHub may start it a few minutes late).
-    - cron: "27 3 * * *"
+    # 12:57 UTC = 18:27 IST every day, so the post lands around 6:30 PM (GitHub often starts a few minutes late).
+    - cron: "57 12 * * *"
   workflow_dispatch:
     inputs:
       date:
