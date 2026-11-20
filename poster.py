@@ -363,7 +363,8 @@ def render_day(day, cfg, calendar, folder):
         image = Painter(cfg).render(entry, day)
     # Instagram requires JPEG. Full-colour (4:4:4) keeps thin text and logo edges sharp.
     image.save(path, "JPEG", quality=95, subsampling=0, optimize=True)
-    caption = build_caption(entry, cfg, day)
+    caption_file = CANVA / f"{day.isoformat()}.txt"  # caption written for a Canva design, if any
+    caption = caption_file.read_text(encoding="utf-8").strip() if designed and caption_file.exists() else build_caption(entry, cfg, day)
     path.with_suffix(".txt").write_text(caption, encoding="utf-8")
     print(f"{day}: rendered {entry.get('template')} ({source}) -> {path.relative_to(ROOT)}")
     return path, caption
