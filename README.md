@@ -15,7 +15,9 @@ calendar.json ──► poster.py renders a 1080×1350 image ──► committed
 |---|---|
 | `config.json` | Brand name, handle, website, colours, timezone, default hashtags |
 | `calendar.json` | What to post on each date. If a date is empty, a post from the `evergreen` list is used |
-| `assets/logo.png` | Your logo (optional) |
+| `assets/` | IGCC logos and the facet watermark |
+| `photos/` | Your own photos for the `photo` template |
+| `illustrations.py` | The line-art illustrations |
 | `fonts/bold.ttf`, `fonts/regular.ttf` | Your brand fonts (optional) |
 | `output/posts/` | Images that have been posted, plus a `.posted.json` record for each |
 | `.github/workflows/instagram-daily-post.yml` | The daily schedule |
@@ -58,13 +60,28 @@ and add two secrets:
 
 - Edit `config.json`: brand name, `@handle`, website, colours (hex codes), `timezone` (`Asia/Kolkata`) and default hashtags.
 - Drop your logo into `assets/logo.png`.
-- Fill `calendar.json` with one entry per date. There are three templates:
+- Fill `calendar.json` with one entry per date. There are four templates: `quote`, `tip`, `announcement` and `photo`.
 
 ```jsonc
 "2026-12-01": { "template": "quote", "text": "…", "author": "…", "caption": "…" }
 "2026-12-02": { "template": "tip", "label": "TIP OF THE DAY", "title": "…", "text": "…", "caption": "…" }
 "2026-12-03": { "template": "announcement", "title": "…", "text": "…", "cta": "Visit {website}", "caption": "…" }
 ```
+
+### Illustrations and photos
+
+- Tip and announcement posts can carry a line-art illustration in IGCC light blue. Add
+  `"illustration": "diamond"`. The options are `diamond`, `brilliance`, `loupe`, `report` and `scale`.
+- To post your **own photos** (lab, instruments, stones, team), put them in `photos/` and use the
+  `photo` template:
+
+```json
+"2026-12-01": { "template": "photo", "photo": "photos/lab-microscope.jpg", "label": "INSIDE OUR LAB",
+                "title": "Every stone, examined in detail", "text": "…", "caption": "…" }
+```
+
+  The photo fills the top half and fades into the IGCC navy, with the text below it.
+  Landscape or square photos at least 1080px wide work best.
 
 Optional for any entry: `"hashtags": ["#extra", "#tags"]`. These are added to the defaults.
 Captions can use `{brand}`, `{handle}`, `{website}`, `{date}` and `{weekday}`.

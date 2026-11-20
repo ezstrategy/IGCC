@@ -22,7 +22,9 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import requests
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
+
+from illustrations import ILLUSTRATIONS
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "output"
@@ -152,15 +154,27 @@ class Painter:
             y += int(size * spacing)
         return y
 
-    def canvas(self):
+    def canvas(self, entry=None):
         top, bottom = self.c["background"], self.c.get("background_end", self.c["background"])
         img = Image.new("RGB", (self.W, self.H), top)
         d = ImageDraw.Draw(img)
         for y in range(self.H):
             t = y / (self.H - 1)
             d.line([(0, y), (self.W, y)], fill=tuple(int(a + (b - a) * t) for a, b in zip(top, bottom)))
-        self.watermark(img)
+        if not (entry and (entry.get("illustration") or entry.get("photo"))):
+            self.watermark(img)
         return img
+
+    def art(self, name, size):
+        if name not in ILLUSTRATIONS:
+            raise ValueError(f"Unknown illustration '{name}'. Options: {', '.join(ILLUSTRATIONS)}")
+        return ILLUSTRATIONS[name](size, self.c["accent"] + (255,))
+
+    def pill(self, d, text, y):
+        lf = self.font("bold", 32)
+        lw = d.textlength(text, font=lf)
+        d.rounded_rectangle([self.margin, y, self.margin + lw + 56, y + 70], radius=35, fill=self.c["accent"])
+        d.text((self.margin + 28, y + 16), text, font=lf, fill=self.c["background"])
 
     def watermark(self, img):
         """Large faint brand emblem bleeding off the bottom-right corner."""
@@ -223,16 +237,12 @@ class Painter:
         return img
 
     def tip(self, entry, day):
-        img = self.canvas()
+        img = self.canvas(entry)
         d = ImageDraw.Draw(img)
         inner = self.W - 2 * self.margin
         y = int(self.H * 0.2)
 
-        label = fill(entry.get("label", "TIP OF THE DAY"), self.cfg, day).upper()
-        lf = self.font("bold", 32)
-        lw = d.textlength(label, font=lf)
-        d.rounded_rectangle([self.margin, y, self.margin + lw + 56, y + 70], radius=35, fill=self.c["accent"])
-        d.text((self.margin + 28, y + 16), label, font=lf, fill=self.c["background"])
+        self.pill(d, fill(entry.get("label", "TIP OF THE DAY"), self.cfg, day).upper(), y)
         y += 130
 
         title = fill(entry.get("title", ""), self.cfg, day)
@@ -243,15 +253,21 @@ class Painter:
         y += 60
 
         body = fill(entry.get("text", ""), self.cfg, day)
+        bottom = int(self.H * 0.87)
         if body:
-            space = int(self.H * 0.86) - y
-            f, lines, size = self.fit(d, body, "regular", inner, space, 50, spacing=1.4)
-            self.block(d, lines, f, size, y, self.c["muted"], align="left", spacing=1.4)
+            space = bottom - y
+            f, lines, size = self.fit(d, body, "regular", inner, space, 44, minimum=34, spacing=1.4)
+            y = self.block(d, lines, f, size, y, self.c["muted"], align="left", spacing=1.4)
+        if entry.get("illustration"):
+            size = min(bottom - y - 20, 560)
+            if size >= 170:
+                art = self.art(entry["illustration"], size)
+                img.paste(art, (self.W - self.margin - size + 30, bottom - size), art)
         self.frame(img, day)
         return img
 
     def announcement(self, entry, day):
-        img = self.canvas()
+        img = self.canvas(entry)
         d = ImageDraw.Draw(img)
         inner = self.W - 2 * self.margin
 
@@ -261,8 +277,13 @@ class Painter:
         bf, blines, bsize = self.fit(d, body, "regular", inner, int(self.H * 0.18), 52, spacing=1.35) if body else (None, [], 0)
         cta = fill(entry.get("cta", ""), self.cfg, day)
 
-        total = len(tlines) * tsize * 1.1 + 50 + len(blines) * bsize * 1.35 + (150 if cta else 0)
-        y = int(self.H * 0.5 - total / 2)
+        art_size = 260 if entry.get("illustration") else 0
+        total = art_size + len(tlines) * tsize * 1.1 + 50 + len(blines) * bsize * 1.35 + (150 if cta else 0)
+        y = int(self.H * 0.55 - total / 2)
+        if art_size:
+            art = self.art(entry["illustration"], art_size)
+            img.paste(art, ((self.W - art_size) // 2, y - 20), art)
+            y += art_size
         y = self.block(d, tlines, tf, tsize, y, self.c["text"], spacing=1.1) + 50
         if blines:
             y = self.block(d, blines, bf, bsize, y, self.c["muted"], spacing=1.35)
@@ -275,9 +296,47 @@ class Painter:
         self.frame(img, day)
         return img
 
+    def photo(self, entry, day):
+        """Your own photo across the top, label/title/text below."""
+        img = self.canvas(entry)
+        path = ROOT / entry.get("photo", "")
+        if not entry.get("photo") or not path.is_file():
+            raise FileNotFoundError(f"Photo not found for {day}: {entry.get('photo')}")
+        ph_h = int(self.H * 0.56)
+        photo = ImageOps.fit(Image.open(path).convert("RGB"), (self.W, ph_h), Image.LANCZOS)
+        # darken the top so the logo stays readable
+        top_shade = Image.new("L", (1, ph_h))
+        for yy in range(ph_h):
+            top_shade.putpixel((0, yy), int(200 * max(0.0, 1 - yy / (ph_h * 0.35))))
+        dark = Image.new("RGB", (self.W, ph_h), self.c["background"])
+        photo = Image.composite(dark, photo, top_shade.resize((self.W, ph_h)))
+        # fade the bottom of the photo into the background
+        mask = Image.new("L", (1, ph_h))
+        for yy in range(ph_h):
+            t = yy / ph_h
+            mask.putpixel((0, yy), int(255 * min(1.0, max(0.0, (1 - t) / 0.4))))
+        img.paste(photo, (0, 0), mask.resize((self.W, ph_h)))
+
+        d = ImageDraw.Draw(img)
+        inner = self.W - 2 * self.margin
+        y = ph_h - 40
+        if entry.get("label"):
+            self.pill(d, fill(entry["label"], self.cfg, day).upper(), y)
+            y += 105
+        title = fill(entry.get("title", ""), self.cfg, day)
+        if title:
+            f, lines, size = self.fit(d, title, "bold", inner, 190, 76)
+            y = self.block(d, lines, f, size, y, self.c["text"], align="left", spacing=1.15) + 20
+        body = fill(entry.get("text", ""), self.cfg, day)
+        if body:
+            f, lines, size = self.fit(d, body, "regular", inner, int(self.H * 0.87) - y, 42, spacing=1.4)
+            self.block(d, lines, f, size, y, self.c["muted"], align="left", spacing=1.4)
+        self.frame(img, day)
+        return img
+
     def render(self, entry, day):
         template = entry.get("template", "tip")
-        if template not in ("quote", "tip", "announcement"):
+        if template not in ("quote", "tip", "announcement", "photo"):
             raise ValueError(f"Unknown template '{template}' for {day}")
         return getattr(self, template)(entry, day)
 
