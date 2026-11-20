@@ -30,6 +30,7 @@ ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "output"
 POSTS = OUTPUT / "posts"
 PREVIEW = OUTPUT / "preview"
+CANVA = ROOT / "canva"  # finished designs exported from Canva, named YYYY-MM-DD.png/.jpg
 
 SYSTEM_FONTS = {
     "bold": [
@@ -348,7 +349,16 @@ def render_day(day, cfg, calendar, folder):
         return None, None
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / f"{day.isoformat()}.jpg"
-    Painter(cfg).render(entry, day).save(path, "JPEG", quality=92)  # Instagram requires JPEG
+    designed = next((f for ext in ("png", "jpg", "jpeg") if (f := CANVA / f"{day.isoformat()}.{ext}").exists()), None)
+    if designed:
+        # A Canva design exists for this day: post it instead of drawing one.
+        source = f"Canva: {designed.name}"
+        image = ImageOps.exif_transpose(Image.open(designed)).convert("RGB")
+        # Instagram rejects anything taller than 4:5, so trim it to the configured size (centre crop).
+        image = ImageOps.fit(image, tuple(cfg.get("image_size", (1080, 1350))), Image.LANCZOS)
+    else:
+        image = Painter(cfg).render(entry, day)
+    image.save(path, "JPEG", quality=92)  # Instagram requires JPEG
     caption = build_caption(entry, cfg, day)
     path.with_suffix(".txt").write_text(caption, encoding="utf-8")
     print(f"{day}: rendered {entry.get('template')} ({source}) -> {path.relative_to(ROOT)}")

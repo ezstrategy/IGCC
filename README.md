@@ -19,6 +19,7 @@ calendar.json ──► poster.py renders a 1080×1350 image ──► committed
 | `photos/` | Your own photos for the `photo` template |
 | `illustrations.py` | The line-art illustrations |
 | `fonts/bold.ttf`, `fonts/regular.ttf` | Your brand fonts (optional) |
+| `canva/` | Finished designs exported from Canva, named `YYYY-MM-DD.png`. If a file exists for a date, it is posted instead of the generated image |
 | `output/posts/` | Images that have been posted, plus a `.posted.json` record for each |
 | `.github/workflows/instagram-daily-post.yml` | The daily schedule |
 
