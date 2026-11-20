@@ -22,7 +22,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import requests
-from PIL import Image, ImageDraw, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 
 from illustrations import ILLUSTRATIONS
 
@@ -356,9 +356,13 @@ def render_day(day, cfg, calendar, folder):
         image = ImageOps.exif_transpose(Image.open(designed)).convert("RGB")
         # Instagram rejects anything taller than 4:5, so trim it to the configured size (centre crop).
         image = ImageOps.fit(image, tuple(cfg.get("image_size", (1080, 1350))), Image.LANCZOS)
+        # Crisp up AI photos a little so they survive Instagram's own compression.
+        image = image.filter(ImageFilter.UnsharpMask(radius=1.4, percent=70, threshold=2))
+        image = ImageEnhance.Contrast(image).enhance(1.04)
     else:
         image = Painter(cfg).render(entry, day)
-    image.save(path, "JPEG", quality=92)  # Instagram requires JPEG
+    # Instagram requires JPEG. Full-colour (4:4:4) keeps thin text and logo edges sharp.
+    image.save(path, "JPEG", quality=95, subsampling=0, optimize=True)
     caption = build_caption(entry, cfg, day)
     path.with_suffix(".txt").write_text(caption, encoding="utf-8")
     print(f"{day}: rendered {entry.get('template')} ({source}) -> {path.relative_to(ROOT)}")
