@@ -4,90 +4,394 @@
     "2026-11-21": {
       "template": "announcement",
       "title": "Every diamond has a story",
-      "text": "We make sure it's the true one. Follow for daily diamond knowledge.",
-      "cta": "{website}",
-      "caption": "Welcome to {brand}! Every day we'll share practical knowledge about diamonds, grading and certification, so you can buy and sell with confidence.",
+      "text": "We make sure it's the true one. Diamond certification and professional grading courses.",
+      "caption": "Welcome to {brand}! We certify diamonds and train the next generation of diamond graders. Follow for a daily dose of diamond knowledge.",
       "hashtags": [
-        "#DiamondLab"
+        "#DiamondLab",
+        "#DiamondGrading"
       ],
-      "illustration": "diamond"
+      "illustration": "diamond",
+      "image_idea": "A single brilliant diamond lit dramatically on deep navy, with icy blue light.",
+      "cta": "{website}"
     },
     "2026-11-22": {
       "template": "tip",
-      "label": "THE 4Cs • 1/4",
-      "title": "Cut",
-      "text": "Cut is about how well a diamond's facets work with light. It drives brilliance, fire and sparkle more than any other C.",
-      "caption": "The 4Cs, part 1: Cut. A well-cut diamond returns light to your eye; a poorly cut one leaks it. Save this series!",
+      "label": "DID YOU KNOW?",
+      "title": "Older than the dinosaurs",
+      "text": "Most natural diamonds formed 150+ km below the surface, over a billion years ago.",
+      "caption": "The diamond in a ring may be over a billion years old. Every one has a journey worth verifying.",
       "hashtags": [
-        "#4Cs",
-        "#DiamondCut"
+        "#DiamondFacts",
+        "#Geology"
       ],
-      "illustration": "brilliance"
+      "illustration": "diamond",
+      "image_idea": "Dramatic cross-section of the Earth with a glowing rough diamond deep inside."
     },
     "2026-11-23": {
       "template": "tip",
-      "label": "THE 4Cs • 2/4",
-      "title": "Colour",
-      "text": "White diamonds are graded on a scale from D (colourless) to Z (light yellow or brown). The closer to D, the rarer.",
-      "caption": "The 4Cs, part 2: Colour. Small colour differences can be invisible to the eye yet matter a lot on a report.",
+      "label": "MYTH vs FACT",
+      "title": "\"It passed the tester, so it's real\"",
+      "text": "Fact: moissanite can fool a basic thermal tester. Only proper gemmological testing confirms a diamond.",
+      "caption": "Pocket testers are a first check, not proof. Moissanite conducts heat like diamond and can read as 'diamond' on basic thermal testers. When it matters, get it certified.",
       "hashtags": [
-        "#4Cs",
-        "#DiamondColour"
+        "#MythVsFact",
+        "#Moissanite"
       ],
-      "illustration": "diamond"
+      "illustration": "loupe",
+      "image_idea": "Split image: a diamond and a look-alike stone side by side, with a red 'MYTH' and green 'FACT' feel."
     },
     "2026-11-24": {
       "template": "tip",
-      "label": "THE 4Cs • 3/4",
-      "title": "Clarity",
-      "text": "From FL and IF through VVS, VS and SI to I: clarity describes the size, number and position of inclusions and blemishes.",
-      "caption": "The 4Cs, part 3: Clarity. Most inclusions can only be seen under 10x magnification - that's where grading comes in.",
+      "label": "GRADING 101",
+      "title": "The 4Cs in one minute",
+      "text": "Cut, Colour, Clarity and Carat: the four factors every grader assesses.",
+      "caption": "Cut, Colour, Clarity and Carat - the universal language of diamond quality. Over the next weeks we'll break each one down. Save this post!",
       "hashtags": [
         "#4Cs",
-        "#DiamondClarity"
+        "#DiamondEducation"
       ],
-      "illustration": "loupe"
+      "illustration": "brilliance",
+      "image_idea": "Four elegant tiles, each with a diamond close-up for cut, colour, clarity and carat."
     },
     "2026-11-25": {
       "template": "tip",
-      "label": "THE 4Cs • 4/4",
-      "title": "Carat",
-      "text": "Carat measures weight, not size. One carat equals 0.2 grams (200 milligrams).",
-      "caption": "The 4Cs, part 4: Carat. Two diamonds of the same carat weight can look different in size depending on their cut.",
+      "label": "INSIDE THE LAB",
+      "title": "A diamond's journey at IGCC",
+      "text": "Received. Inspected. Measured. Graded. Reported. Every stone, step by step.",
+      "caption": "What happens after you hand us a diamond? Every stone goes through careful inspection, measurement and grading before a report is issued.",
       "hashtags": [
-        "#4Cs",
-        "#DiamondCarat"
+        "#BehindTheScenes",
+        "#GemLab"
       ],
-      "illustration": "scale"
+      "illustration": "report",
+      "image_idea": "Gemmologist's gloved hands placing a diamond under a microscope in a clean modern lab."
     },
     "2026-11-26": {
-      "template": "quote",
-      "text": "Trust, but verify. Every diamond deserves an independent report.",
-      "author": "{brand}",
-      "caption": "A certificate from an independent lab protects both buyer and seller."
+      "template": "tip",
+      "label": "QUIZ TIME",
+      "title": "Which C measures weight?",
+      "text": "A) Cut   B) Carat   C) Clarity\nComment your answer!",
+      "caption": "Quick quiz! Which of the 4Cs measures weight, not size? Comment A, B or C - answer in tomorrow's story.",
+      "hashtags": [
+        "#DiamondQuiz",
+        "#4Cs"
+      ],
+      "illustration": "scale",
+      "image_idea": "Diamond on a precision scale, with bold quiz layout and A/B/C options."
     },
     "2026-11-27": {
-      "template": "tip",
-      "label": "DID YOU KNOW?",
-      "title": "Lab-grown or natural?",
-      "text": "Lab-grown diamonds are physically and chemically diamond. Telling them apart from natural ones needs laboratory testing.",
-      "caption": "You can't tell a lab-grown diamond from a natural one by eye. That's exactly why testing and disclosure matter.",
+      "template": "announcement",
+      "title": "Learn to grade like a professional",
+      "text": "Hands-on diamond grading training from a working certification lab.",
+      "caption": "Want to turn your love for diamonds into a skill? Our diamond grading course teaches you to assess stones the way a lab does. DM us for the next batch.",
       "hashtags": [
-        "#LabGrownDiamonds",
-        "#NaturalDiamonds"
+        "#DiamondCourse",
+        "#GemologyCourse",
+        "#LearnGemology"
       ],
-      "illustration": "loupe"
+      "illustration": "loupe",
+      "image_idea": "Students in a modern classroom examining diamonds with loupes, warm and aspirational.",
+      "cta": "{website}"
     },
     "2026-11-28": {
-      "template": "announcement",
-      "title": "Buying this season?",
-      "text": "Ask for an independent certificate before you pay.",
-      "cta": "Learn more at {website}",
-      "caption": "Big shopping weekend? Make sure the diamond you buy is exactly what it's described as. Ask for the report.",
+      "template": "tip",
+      "label": "BUYER'S GUIDE",
+      "title": "5 things to check on a diamond report",
+      "text": "Report number - Laser inscription - The 4Cs - Measurements - Treatment disclosure",
+      "caption": "Before you buy, read the report: 1) report number 2) laser inscription 3) the 4Cs 4) measurements 5) any treatment disclosure. Save this for your next purchase.",
       "hashtags": [
-        "#SmartBuying"
+        "#DiamondBuyingTips",
+        "#DiamondReport"
       ],
-      "illustration": "report"
+      "illustration": "report",
+      "image_idea": "A diamond grading report on a desk next to a loose diamond and tweezers."
+    },
+    "2026-11-29": {
+      "template": "tip",
+      "label": "THE SCIENCE OF SPARKLE",
+      "title": "Why diamonds sparkle",
+      "text": "Brilliance is white light returned to your eye. Fire is light split into rainbow colours.",
+      "caption": "Brilliance, fire and scintillation - three ways a diamond plays with light. A great cut is what unlocks them.",
+      "hashtags": [
+        "#Brilliance",
+        "#DiamondScience"
+      ],
+      "illustration": "brilliance",
+      "image_idea": "Macro shot of a diamond throwing rainbow flashes of light on a dark background."
+    },
+    "2026-11-30": {
+      "template": "tip",
+      "label": "MYTH vs FACT",
+      "title": "\"Lab-grown diamonds are fake\"",
+      "text": "Fact: lab-grown diamonds are real diamonds. The difference is origin, and it must be disclosed.",
+      "caption": "Lab-grown diamonds are carbon crystals just like natural ones. What matters is honest disclosure - and that's exactly what a lab report gives you.",
+      "hashtags": [
+        "#LabGrownDiamonds",
+        "#MythVsFact"
+      ],
+      "illustration": "diamond",
+      "image_idea": "Two identical diamonds side by side, one labelled 'natural', one 'lab-grown'."
+    },
+    "2026-12-01": {
+      "template": "tip",
+      "label": "GRADING 101 - COLOUR",
+      "title": "From D to Z",
+      "text": "Colourless diamonds are graded D (colourless) to Z (light yellow or brown). The closer to D, the rarer.",
+      "caption": "Colour is about the absence of colour. Differences between grades can be invisible to the untrained eye - that's why graders compare against master stones.",
+      "hashtags": [
+        "#DiamondColour",
+        "#4Cs"
+      ],
+      "illustration": "diamond",
+      "image_idea": "A row of diamonds showing a subtle colourless-to-yellow gradient on white."
+    },
+    "2026-12-02": {
+      "template": "tip",
+      "label": "INSIDE THE LAB",
+      "title": "Natural or lab-grown?",
+      "text": "They can look identical. Advanced instruments reveal how a diamond grew.",
+      "caption": "Even experts can't tell natural from lab-grown by eye. Labs use specialised instruments to read the growth story inside the stone.",
+      "hashtags": [
+        "#LabGrownDiamonds",
+        "#DiamondTesting"
+      ],
+      "illustration": "loupe",
+      "image_idea": "Diamond inside a high-tech testing instrument with soft blue light."
+    },
+    "2026-12-03": {
+      "template": "tip",
+      "label": "SPOT THE DIFFERENCE",
+      "title": "Natural or lab-grown?",
+      "text": "Left or right - which one is natural?\nComment your guess!",
+      "caption": "Can you spot the natural diamond? Trick question - you can't by eye. That's why certification matters. Comment your guess anyway!",
+      "hashtags": [
+        "#DiamondQuiz",
+        "#LabGrownDiamonds"
+      ],
+      "illustration": "diamond",
+      "image_idea": "Two identical-looking diamonds side by side labelled LEFT and RIGHT."
+    },
+    "2026-12-04": {
+      "template": "announcement",
+      "title": "Where diamond grading can take you",
+      "text": "Diamond grader - Jewellery buyer - Retail consultant - Quality control - Your own business",
+      "caption": "A grading qualification opens doors across the diamond and jewellery trade. Which career would you choose? DM us to start your journey.",
+      "hashtags": [
+        "#DiamondCareers",
+        "#DiamondCourse"
+      ],
+      "illustration": "loupe",
+      "image_idea": "Confident young professional with a loupe in an elegant jewellery store.",
+      "cta": "{website}"
+    },
+    "2026-12-05": {
+      "template": "tip",
+      "label": "WEDDING SEASON",
+      "title": "Buying a diamond this season?",
+      "text": "Insist on a report. Match the stone to it. Ask about treatments. Buy with confidence.",
+      "caption": "Wedding season is here! Before you buy that special piece, make sure the diamond is certified and the report matches the stone.",
+      "hashtags": [
+        "#WeddingSeason",
+        "#BridalJewellery",
+        "#DiamondBuyingTips"
+      ],
+      "illustration": "report",
+      "image_idea": "Elegant Indian bridal jewellery with a diamond ring in focus, rich but tasteful."
+    },
+    "2026-12-06": {
+      "template": "tip",
+      "label": "DID YOU KNOW?",
+      "title": "Diamonds come in every colour",
+      "text": "Traces of boron make diamonds blue. Nitrogen makes them yellow.",
+      "caption": "Pink, blue, yellow, green - coloured diamonds owe their hues to tiny traces of other elements or structural changes. Some are among the rarest gems on Earth.",
+      "hashtags": [
+        "#FancyColorDiamonds",
+        "#DiamondFacts"
+      ],
+      "illustration": "brilliance",
+      "image_idea": "A rainbow arrangement of fancy coloured diamonds on dark velvet."
+    },
+    "2026-12-07": {
+      "template": "tip",
+      "label": "MYTH vs FACT",
+      "title": "\"Diamonds can't break\"",
+      "text": "Fact: diamond is the hardest natural material, but a hard knock can still chip it.",
+      "caption": "Hard is not the same as unbreakable. Diamonds can chip along their cleavage planes with a sharp blow, so treat them with care.",
+      "hashtags": [
+        "#MythVsFact",
+        "#DiamondCare"
+      ],
+      "illustration": "diamond",
+      "image_idea": "Diamond ring on a hard stone surface with dramatic lighting."
+    },
+    "2026-12-08": {
+      "template": "tip",
+      "label": "GRADING 101 - CLARITY",
+      "title": "FL to I3: 11 clarity grades",
+      "text": "Clarity describes the size, number and position of inclusions and blemishes.",
+      "caption": "Most inclusions are only visible under 10x magnification - nature's fingerprints that make each diamond unique, and help identify it.",
+      "hashtags": [
+        "#DiamondClarity",
+        "#4Cs"
+      ],
+      "illustration": "loupe",
+      "image_idea": "Extreme macro of a diamond interior showing a tiny natural inclusion."
+    },
+    "2026-12-09": {
+      "template": "tip",
+      "label": "TOOLS OF THE TRADE",
+      "title": "A gemmologist's toolkit",
+      "text": "10x loupe - Tweezers - Microscope - Master stones - Precision scale",
+      "caption": "Every grade starts with the right tools and a trained eye. Learn to use them in our grading course.",
+      "hashtags": [
+        "#Gemology",
+        "#GemLab"
+      ],
+      "illustration": "loupe",
+      "image_idea": "Flat-lay of gemmology tools on navy: loupe, tweezers, scale, diamond."
+    },
+    "2026-12-10": {
+      "template": "tip",
+      "label": "QUIZ TIME",
+      "title": "How many facets on a round brilliant?",
+      "text": "A) 33   B) 57 or 58   C) 72\nComment your answer!",
+      "caption": "Count the facets! How many does a standard round brilliant diamond have? Comment your answer.",
+      "hashtags": [
+        "#DiamondQuiz",
+        "#RoundBrilliant"
+      ],
+      "illustration": "brilliance",
+      "image_idea": "Top-down view of a round brilliant diamond showing its facet pattern."
+    },
+    "2026-12-11": {
+      "template": "announcement",
+      "title": "What you'll learn",
+      "text": "The 4Cs - Spotting simulants - Lab-grown detection - Reading reports - Hands-on practice",
+      "caption": "From the 4Cs to telling diamonds from look-alikes, our course takes you from enthusiast to confident grader. DM us for course details.",
+      "hashtags": [
+        "#DiamondCourse",
+        "#GemologyCourse"
+      ],
+      "illustration": "report",
+      "image_idea": "Close-up of a student's hand holding a diamond with tweezers under a lamp.",
+      "cta": "{website}"
+    },
+    "2026-12-12": {
+      "template": "tip",
+      "label": "BUYER TIP",
+      "title": "Look for the laser inscription",
+      "text": "Many certified diamonds carry their report number on the girdle. Check it matches.",
+      "caption": "A tiny inscription on the girdle links the stone to its report. Ask your jeweller to show it to you under magnification.",
+      "hashtags": [
+        "#DiamondBuyingTips",
+        "#LaserInscription"
+      ],
+      "illustration": "report",
+      "image_idea": "Extreme macro of a diamond girdle with a tiny laser-inscribed number."
+    },
+    "2026-12-13": {
+      "template": "tip",
+      "label": "DID YOU KNOW?",
+      "title": "Carat comes from a seed",
+      "text": "Traders once weighed gems against carob seeds. Today one carat is exactly 0.2 grams.",
+      "caption": "The word 'carat' traces back to the carob seed, once used as a counterweight. Today it's a precise unit: 1 carat = 0.2 grams.",
+      "hashtags": [
+        "#DiamondFacts",
+        "#DiamondCarat"
+      ],
+      "illustration": "scale",
+      "image_idea": "Carob seeds and a diamond on an antique brass balance scale."
+    },
+    "2026-12-14": {
+      "template": "tip",
+      "label": "MYTH vs FACT",
+      "title": "\"Bigger carat always means better\"",
+      "text": "Fact: cut decides the sparkle. A well-cut smaller diamond can outshine a bigger one.",
+      "caption": "Size catches the eye, but cut brings the beauty. Don't judge a diamond by carat alone.",
+      "hashtags": [
+        "#MythVsFact",
+        "#DiamondCut"
+      ],
+      "illustration": "brilliance",
+      "image_idea": "Two diamonds: a smaller one sparkling brilliantly, a larger dull one."
+    },
+    "2026-12-15": {
+      "template": "tip",
+      "label": "GRADING 101 - CUT",
+      "title": "Proportions, symmetry, polish",
+      "text": "Cut grading looks at how well a diamond is proportioned and finished - the C that drives sparkle.",
+      "caption": "Cut is the only C shaped entirely by human hands. Graders assess proportions, symmetry and polish to judge how well a diamond handles light.",
+      "hashtags": [
+        "#DiamondCut",
+        "#4Cs"
+      ],
+      "illustration": "brilliance",
+      "image_idea": "Technical side profile of a diamond with elegant proportion lines."
+    },
+    "2026-12-16": {
+      "template": "tip",
+      "label": "INSIDE THE LAB",
+      "title": "Treatments we look for",
+      "text": "Fracture filling - Laser drilling - Colour treatment. Treatments must always be disclosed.",
+      "caption": "Some diamonds are treated to improve their look. That's not always bad - but it must be disclosed. Our reports tell you.",
+      "hashtags": [
+        "#DiamondTreatments",
+        "#Transparency"
+      ],
+      "illustration": "loupe",
+      "image_idea": "Diamond under a microscope with a magnified inset view."
+    },
+    "2026-12-17": {
+      "template": "tip",
+      "label": "QUIZ TIME",
+      "title": "Which one is a diamond simulant?",
+      "text": "A) Moissanite   B) Cubic zirconia   C) Both\nComment your answer!",
+      "caption": "Simulants look like diamonds but aren't. Which of these is one? Comment A, B or C!",
+      "hashtags": [
+        "#DiamondQuiz",
+        "#Simulants"
+      ],
+      "illustration": "diamond",
+      "image_idea": "Three sparkling stones on velvet labelled A, B and C."
+    },
+    "2026-12-18": {
+      "template": "announcement",
+      "title": "Learn from a working lab",
+      "text": "Our trainers grade real diamonds every day. Learn the skills the trade actually uses.",
+      "caption": "Learn diamond grading where it actually happens - in a certification lab. DM us to join the next batch.",
+      "hashtags": [
+        "#DiamondCourse",
+        "#LearnGemology"
+      ],
+      "illustration": "loupe",
+      "image_idea": "Trainer guiding a student at a microscope in a modern lab.",
+      "cta": "{website}"
+    },
+    "2026-12-19": {
+      "template": "tip",
+      "label": "BUYER TIP",
+      "title": "Why certification matters",
+      "text": "Resale, insurance, peace of mind. A report from an independent lab protects your investment.",
+      "caption": "An independent report makes your diamond easier to insure, resell and trust. Always ask for one.",
+      "hashtags": [
+        "#CertifiedDiamonds",
+        "#DiamondBuyingTips"
+      ],
+      "illustration": "report",
+      "image_idea": "Diamond ring beside a certificate, warm premium lighting."
+    },
+    "2026-12-20": {
+      "template": "tip",
+      "label": "DID YOU KNOW?",
+      "title": "Some diamonds glow",
+      "text": "Under UV light, many diamonds show fluorescence - most often blue.",
+      "caption": "Fluorescence is a natural reaction to UV light. Graders record it on the report because it can affect appearance and value.",
+      "hashtags": [
+        "#Fluorescence",
+        "#DiamondFacts"
+      ],
+      "illustration": "brilliance",
+      "image_idea": "Diamond glowing blue under ultraviolet light in a dark room."
     }
   },
   "evergreen": [
