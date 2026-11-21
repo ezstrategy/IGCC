@@ -378,7 +378,10 @@ class Instagram:
         self.token = os.environ.get("IG_ACCESS_TOKEN", "").strip()
         if not self.user_id or not self.token:
             sys.exit("IG_USER_ID and IG_ACCESS_TOKEN environment variables are required.")
-        self.base = f"https://graph.facebook.com/{version}"
+        # Tokens from "Instagram API with Instagram Login" start with "IG" and use graph.instagram.com
+        # (no Facebook Page needed). Tokens from Facebook Login / a System User use graph.facebook.com.
+        host = "graph.instagram.com" if self.token.startswith("IG") else "graph.facebook.com"
+        self.base = f"https://{host}/{version}"
 
     def call(self, method, path, **params):
         params["access_token"] = self.token
